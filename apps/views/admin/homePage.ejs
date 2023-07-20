@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" text="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/font/fontawesome-free-6.4.0-web/css/all.css">
+</head>
+<body>
+    <div class="screen">
+        <header id="header1">
+            <ul class="list">
+                <li class="item"><a href="/blog">Trang chủ</a></li>
+                <li class="item"><a href="/blog/about">Giới thiệu</a></li>
+                <li class="item"><a href="#">Liên hệ - Góp ý</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item icon_item"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                <li class="item icon_item"><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+        </header>
+        <div class="contentHeader">
+            <h1>Kênh chia sẻ các thông tin về lập trình</h1>
+        </div>
+        <div class="menu">
+            <ul class="list">
+                <li class="item_menu"><a href="/blog"><i class="fa-solid fa-house"></i></a></li>
+                <li class="item_menu"><a href="">Thủ thuật IT</a></li>
+                <li class="item_menu"><a href="">Giải trí</a></li>
+                <li class="item_menu"><a href="">Lập trình</a></li>
+                <li class="item_menu"><a href="">Cấu trúc dữ liệu - Giải thuật</a></li>
+                <li class="item_menu"><a href="">Sách hay</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item"><input id="search" type="text" placeholder="Tìm kiếm"></li>
+                <li class="item"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></li>
+            </ul>
+        </div>
+
+        <div class="homePage">
+            <div class="listPost">
+                <% if (data && data.posts) {%>
+                    <% for (var i=0; i < data.posts.length; i++) {%>
+                        <div class="post_review">
+                            <a href="/blog/detail/<%=data.posts[i].id%>" class="detail">
+                                <h2 class="title">
+                                    <%=data.posts[i].title%>
+                                </h2>
+                                <!-- <h3 class="subContent">
+                                    <%- data.posts[i].content%>
+                                </h3> -->
+                            </a>
+                
+                            <p style="color: #aaaaaa; font-size: small;" class="post_meta">Posted by <a style="text-decoration: none; color: #FC5555;" href="" class="author"><%=data.posts[i].author%></a> on  <%=data.posts[i].create_at%></p>
+                        </div>
+                        <hr>
+                    <%}%>
+                <%}%>
+                
+            </div>
+        </div>
+      
+    </div>
+
+</body>
+</html>

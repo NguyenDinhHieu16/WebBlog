@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/dashBoard.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="MN BlogAdmin">
+            <a href="/admin" class="linkTransfer">Blog Admin</a>
+        </div>
+        <div class="MN posts"><a href="/admin/posts" class="linkTransfer">Posts</a></div>
+        <div class="MN Users"><a href="/admin/user" class="linkTransfer">Users</a></div>
+    </div>
+    <br>
+    <div class="row pull-right" >
+        <a href="/admin/posts/new" class="btn btn-success">Add new post</a>
+    </div>
+    <br><br>
+    <div id="posts">Posts</div>
+    <br>
+    <div id="table">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Email</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Create Time</td>
+                    <td>Update Time</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data && data.users) {%>
+                    <% for (var i=0; i< data.users.length; i++) {%>
+                        <tr>
+                            <td><%=data.users[i].id %></td>
+                            <td><%=data.users[i].email %></td>
+                            <td><%=data.users[i].first_name %></td>
+                            <td><%=data.users[i].last_name %></td>
+                            <td><%=data.users[i].create_at %></td>
+                            <td><%=data.users[i].update_at %></td>
+                        </tr>
+                    <%}%>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+    <!-- <script type="text/javascript" src="/static/js/post.js"></script> -->
+</body>
+</html>

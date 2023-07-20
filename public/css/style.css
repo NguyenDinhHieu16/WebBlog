@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.screen {
+    width: 1200px;
+    margin: auto;
+    background-color: #fff;
+}
+
+#header1 {
+    height: 65px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.list {
+    list-style: none;
+    font-size: 18px;
+}
+
+.item, .item_menu {
+    display: inline-block;
+    color: white;
+    padding: 0 15px;
+}
+
+.item a, .item_menu a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.item:hover a {
+    color: #fc554d;
+}
+
+.icon_item:hover a {
+    color: #1aa0d3;
+}
+
+.contentHeader {
+    height: 115px;
+    background-color: #fff;
+}
+
+.contentHeader h1 {
+    padding: 50px 0 0 20px;
+    text-transform: uppercase;
+}
+
+.menu {
+    height: 80px;
+    background-color: #fc5555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#search {
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.post span {
+    /* font-weight: 1000;
+    font-size: 30px;
+    padding: 20px 20px; */
+    display: block;
+    float: right;
+}
+
+.detail {
+    text-decoration: none;
+    color: black;
+}
+
+.listPost {
+    margin: 50px 0 0 70px;
+}
+
+.post_review {
+    padding-bottom: 40px;
+}
+
+hr {
+    margin-bottom: 20px;
+    height: 5px;
+    width: 80%;
+    background-color: #f5f5f5;
+    border: none;
+}

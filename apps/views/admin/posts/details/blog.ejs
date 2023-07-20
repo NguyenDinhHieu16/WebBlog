@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%if(data && data.post) {%> <%= data.post.title %> <%}%></title>
+    <link rel="stylesheet" text="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/font/fontawesome-free-6.4.0-web/css/all.css">
+</head>
+<body>
+    <div class="screen">
+        <header id="header1">
+            <ul class="list">
+                <li class="item"><a href="/blog">Trang chủ</a></li>
+                <li class="item"><a href="#">Giới thiệu</a></li>
+                <li class="item"><a href="#">Liên hệ - Góp ý</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item icon_item"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                <li class="item icon_item"><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+        </header>
+        <div class="contentHeader">
+            <h1>Kênh chia sẻ các thông tin về lập trình</h1>
+        </div>
+        <div class="menu">
+            <ul class="list">
+                <li class="item_menu"><a href="/blog"><i class="fa-solid fa-house"></i></a></li>
+                <li class="item_menu"><a href="">Thủ thuật IT</a></li>
+                <li class="item_menu"><a href="">Giải trí</a></li>
+                <li class="item_menu"><a href="">Lập trình</a></li>
+                <li class="item_menu"><a href="">Cấu trúc dữ liệu - Giải thuật</a></li>
+                <li class="item_menu"><a href="">Sách hay</a></li>
+            </ul>
+            <ul class="list">
+                <li class="item"><input id="search" type="text" placeholder="Tìm kiếm"></li>
+                <li class="item"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></li>
+            </ul>
+        </div>
+
+        <div class="mainContent" style="padding: 40px 0 15px 40px;">
+            <div class="row">
+                <%if(data && data.post){%>
+                    <div class="introViewHeader">
+                        <h1 class="title">
+                            <%= data.post.title %> 
+                        </h1>
+                        <br>
+                        <span style="color: #aaaaaa; font-size: small;" class="meta">Posted by <a href="" style="text-decoration: none; color: #FC5555;"><%=data.post.author%> </a> on <%=data.post.create_at%></span>
+                    </div>
+                <%}%>
+            </div>
+            <br>
+            <div class="postContent">
+                <%-data.post.content%>
+            </div>
+        </div>
+        <div id="share-post">
+            <!-- <a href="" class="facebook"></a>
+            <a class="twitter" href="https://www.blogger.com/share-post.g?blogID=1482302533726279457&amp;postID=2323704593397658075&amp;target=twitter" target="_blank" title="Share to Twitter">
+            <span></span>
+                                             SHARE
+                                          </a>
+            <a class="google" href="https://plus.google.com/share?url=https://gameiter.blogspot.com/2017/04/huong-dan-xoa-tat-ca-file-trong-thu-muc.html" onclick="javascript:window.open(this.href,   &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;" rel="nofollow" title="Share this on Google+">
+            <span></span>
+                                             SHARE
+                                          </a> -->
+         </div>
+         <div class="commant">
+            <h2 class="title_cmt">
+                Comments:
+            </h2>
+            <div class="main_commant" style="border-bottom: 1px solid #C4C4C4;">
+                <div class="author-commmant">Author</div>
+                <form action="blog">
+                    <div class="form-group">
+                        <input type="text" id="cmt" name="cmt" placeholder="Comments">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Gửi</button>
+                    </div>
+                </form>
+            </div>
+         </div>
+    </div>
+
+    
+    <style>
+        .commant {
+            padding-left: 40px;
+        }
+        .form-group {
+        margin-bottom: 20px;
+        }
+        .form-group input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        }
+    </style>
+</body>
+</html>
