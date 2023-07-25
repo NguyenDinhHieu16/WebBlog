@@ -24,7 +24,7 @@
             <h1>Kênh chia sẻ các thông tin về lập trình</h1>
         </div>
         <div class="menu">
-            <ul class="list">
+            <!-- <ul class="list">
                 <li class="item_menu"><a href="/blog"><i class="fa-solid fa-house"></i></a></li>
                 <li class="item_menu"><a href="">Thủ thuật IT</a></li>
                 <li class="item_menu"><a href="">Giải trí</a></li>
@@ -35,7 +35,7 @@
             <ul class="list">
                 <li class="item"><input id="search" type="text" placeholder="Tìm kiếm"></li>
                 <li class="item"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></li>
-            </ul>
+            </ul> -->
         </div>
 
         <div class="mainContent" style="padding: 40px 0 15px 40px;">
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div id="share-post">
-            <!-- <a href="" class="facebook"></a>
+            <a href="" class="facebook"></a>
             <a class="twitter" href="https://www.blogger.com/share-post.g?blogID=1482302533726279457&amp;postID=2323704593397658075&amp;target=twitter" target="_blank" title="Share to Twitter">
             <span></span>
                                              SHARE
@@ -64,7 +64,7 @@
             <a class="google" href="https://plus.google.com/share?url=https://gameiter.blogspot.com/2017/04/huong-dan-xoa-tat-ca-file-trong-thu-muc.html" onclick="javascript:window.open(this.href,   &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;" rel="nofollow" title="Share this on Google+">
             <span></span>
                                              SHARE
-                                          </a> -->
+                                          </a>
          </div>
          <div class="commant">
             <h2 class="title_cmt">
@@ -72,7 +72,8 @@
             </h2>
             <div class="main_commant" style="border-bottom: 1px solid #C4C4C4;">
                 <div class="author-commmant">Author</div>
-                <form action="blog">
+                <% if (data1 && data1.cmts) {%>
+                <form action="/blog/detail/<%=data1.cmts[0].id_post%>" method="post">
                     <div class="form-group">
                         <input type="text" id="cmt" name="cmt" placeholder="Comments">
                     </div>
@@ -80,6 +81,19 @@
                         <button type="submit">Gửi</button>
                     </div>
                 </form>
+                <div class="tesst">
+                    <h2 class="All">All Comment:</h2>
+                    <ul class="striped-list">
+                        <% for (var i=0; i < data1.cmts.length; i++) {%>
+                            <li class="cmt"><%=data1.cmts[i].content%></li>
+                        <%}%>
+                    </ul>
+                        
+                    
+                </div>
+                <%}%>
+                
+                
             </div>
          </div>
     </div>
@@ -108,6 +122,28 @@
         cursor: pointer;
         font-size: 16px;
         }
+
+        /* Định dạng cho các mục li trong danh sách */
+        .striped-list li {
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+        list-style: none;
+        margin-left: 10px;
+        }
+
+        /* Định dạng cho các mục li có chỉ số chẵn (đếm từ 0) */
+        .striped-list li:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
     </style>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect("http://localhost:3000");
+
+        socket.on("connect", function() {
+            console.log("User is connecting to server");
+        });
+    </script>    
 </body>
 </html>

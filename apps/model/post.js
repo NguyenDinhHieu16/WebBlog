@@ -72,10 +72,42 @@ function deletePost(id) {
     return false;
 }
 
+function getAllCmt(id) {
+    if (id) {
+        var defer = q.defer();
+        var query = conn.query('SELECT * FROM comment WHERE ?', {id_post: id}, function (err, cmts) {
+        if (err) {
+            defer.reject("err");
+        } else {
+            defer.resolve(cmts);
+        };
+        });
+        return defer.promise;
+    }
+    return false;
+}
+
+function addCmt(cmts) {
+    if (cmts) {
+        var defer = q.defer();
+        var query = conn.query('INSERT INTO comment SET ?', cmts, function (err, comment) {
+            if (err) {
+                defer.reject("err");
+            } else {
+                defer.resolve(comment);
+            };
+        });
+        return defer.promise;
+    }
+    return false;
+}
+
 module.exports = {
     getAllpPost: getAllpPost,
     addPost: addPost,
     getPostById: getPostById,
     updatePost: updatePost,
-    deletePost: deletePost
+    deletePost: deletePost,
+    getAllCmt: getAllCmt,
+    addCmt: addCmt
 }

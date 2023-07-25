@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/dashBoard.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="header">
         <div class="MN BlogAdmin">
-            <a href="/admin" class="linkTransfer">Blog Admin</a>
+            <a href="/blog" class="linkTransfer">Blog Admin</a>
         </div>
         <div class="MN posts"><a href="/admin/posts" class="linkTransfer">Posts</a></div>
         <div class="MN Users"><a href="/admin/user" class="linkTransfer">Users</a></div>
+        <div class="MN Users"><a href="/admin" class="linkTransfer">Admin</a></div>
     </div>
     <br>
     <div class="row pull-right" >
@@ -38,7 +40,7 @@
                 <% if (data && data.posts) {%>
                     <% for (var i=0; i< data.posts.length; i++) {%>
                         <tr>
-                            <td><%= data.posts[i].id %></td>
+                            <td><%=data.posts[i].id %></td>
                             <td><%=data.posts[i].title %></td>
                             <td><%=data.posts[i].content %></td>
                             <td><%=data.posts[i].author %></td>

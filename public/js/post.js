@@ -1,6 +1,7 @@
 function post() {
     function bindEvent() {
         $(".post_edit").click(function(e) {
+            console.log("nguyendinhhieu");
             var params = {
                 id: $(".id").val(),
                 title: $(".title").val(),
@@ -8,7 +9,8 @@ function post() {
                 author: $(".author").val()
             };
             
-            var base_url = location.protocol + "//" + document.domain + ":" + location.port;
+            // var base_url = location.protocol + "//" + document.hostname + ":" + location.port;
+            var base_url = "http://localhost:3000";
 
             $.ajax({
                 url: base_url + "/admin/posts/edit",
@@ -25,11 +27,12 @@ function post() {
 
         $(".post_delete").click(function(e) {
             var post_id = $(this).attr("post_id");
-
-            var base_url = location.protocol + "//" + document.domain + ":" + location.port;
+            console.log(post_id);
+            // var base_url = location.protocol + "//" + document.domain + ":" + location.port;
+            var base_url = "http://localhost:3000";
 
             $.ajax({
-                url: base_url + "/admin/posts/edit",
+                url: base_url + "/admin/posts/delete",
                 type: "DELETE",
                 data: {id: post_id},
                 dataType: "json",
@@ -38,7 +41,7 @@ function post() {
                         location.reload();
                     }
                 }
-            })
+            });
         });
     }
     bindEvent();

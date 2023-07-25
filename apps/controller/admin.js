@@ -70,7 +70,6 @@ router.post("/login", function(req, res) {
         res.render("login", {data: {error: "Please enter an email"}})
     }else{
         var data = user_md.getUserByEmail(params.email);
-
         data.then(function(users){
         var user= users[0];
         var status = helper.compare_pw(params.passW, user.password);
@@ -155,9 +154,9 @@ router.put("/posts/edit", function(req, res) {
     }
 });
 
-router.delete("posts/delete", function(req, res) {
+router.delete("/posts/delete", function(req, res) {
     var post_id = req.body.id;
-
+    console.log(post_id);
     var data= post_md.deletePost(post_id);
     if (!data) {
         res.json({status_code: 500});
@@ -196,6 +195,6 @@ router.get("/user", function(req, res) {
     }else{
         res.redirect("/admin/login");
     }
-})
+});
 
 module.exports = router;
